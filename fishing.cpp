@@ -64,6 +64,7 @@ int main() {
             int type;
             Image2d image[6] = {Image2d(id[0].c_str(),Vector2{400,200}), Image2d(id[1].c_str(),Vector2{400,200}), Image2d(id[2].c_str(),Vector2{400,200}), Image2d(id[3].c_str(),Vector2{400,200}),Image2d(id[4].c_str(),Vector2{400,200}),Image2d(id[5].c_str(),Vector2{400,200})};
             bool flag = false, flag_text = false;
+            bool non = true;
             int f = 5, f2 = -1;
             char text[100] = "YOU HAVE: ";
             Image2d inventory = Image2d("../sprites/inventory.PNG",Vector2{10,300});
@@ -76,12 +77,15 @@ int main() {
                     Vector2 tmp = GetMousePosition();
                     if (inventory.ispressed(tmp)) {
                         scene = "inventory";
+                        non = false;
                     }
                     if (shop.ispressed(tmp)) {
                         scene = "shop";
+                        non = false;
                     }
                 }
-                if((IsKeyPressed (KEY_SPACE)||IsMouseButtonPressed(MOUSE_LEFT_BUTTON))&&(item.size()<invs||flag_text)) {
+                if(non&&(IsKeyPressed (KEY_SPACE)||IsMouseButtonPressed(MOUSE_LEFT_BUTTON))&&(item.size()<invs||flag_text)) {
+                    non=true;
                     if (flag_text) {
                         strcpy(text, "YOU HAVE: ");
                         flag_text=false;
