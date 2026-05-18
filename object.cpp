@@ -15,9 +15,7 @@ bool Image2d::ispressed(Vector2 mousePosition) {
         return false;
     }
 }
-Image2d::~Image2d() {
-
-}
+Image2d::~Image2d() = default;
 
 
 
@@ -45,6 +43,8 @@ bool Figure2d::ispressed(Vector2 mousePosition) {
         return false;
     }
 }
+Figure2d::~Figure2d() = default;
+
 
 
 
