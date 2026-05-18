@@ -18,4 +18,5 @@ struct Figure2d {
     Figure2d(const std::string type, Vector2 position, Vector2 size, Color color);
     void draw();
     bool ispressed(Vector2 mousePosition);
+    ~Figure2d();
 };
